@@ -1,0 +1,124 @@
+<div class="policy-item">
+    <div class="policy-head">
+        <h2>New Policy Form</h2>
+        <p>Please fill in all the details marked as (Requied)</p>
+    </div>
+    <form [formGroup]="policyForm" (ngSubmit)="onSubmit()" class="policy-form"> 
+        <div class="row">
+            <div class="col-sm-12 col-md-8 col-lg-4">
+                <div class="form-group floating-label">
+                    <input class="form-control" id="policyNameId" type="text" placeholder=" " 
+                    formControlName="policyName" [ngClass]="{'is-invalid': displayMessage['policyName']}">
+                    <label for="policyNameId">Policy Name (Required)</label>
+                    <span class="invalid-feedback">
+                        {{displayMessage['policyName']}}
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-md-4 col-lg-2">
+                <div class="form-group floating-label">
+                    <input class="form-control" id="holderIdId" type="number" placeholder=" " 
+                    formControlName="holderId" [ngClass]="{'is-invalid': displayMessage['holderId']}">
+                    <label for="holderIdId">Holder Id (Required)</label>
+                    <span class="invalid-feedback">
+                        {{displayMessage['holderId']}}
+                    </span>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-4 col-lg-3">
+                <div class="form-group floating-label">
+                    <input class="form-control" id="firstNameId" type="text" placeholder=" " 
+                    formControlName="firstName" [ngClass]="{'is-invalid': displayMessage['firstName']}">
+                    <label for="firstNameId">Holder First Name (Required)</label>
+                    <span class="invalid-feedback">
+                        {{displayMessage['firstName']}}
+                    </span>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-4 col-lg-3">
+                <div class="form-group floating-label">
+                    <input class="form-control" id="lastNameId" type="text" placeholder=" " 
+                    formControlName="lastName" [ngClass]="{'is-invalid': displayMessage['lastName']}">
+                    <label for="firstNameId">Holder Last Name (Required)</label>
+                    <span class="invalid-feedback">
+                        {{displayMessage['lastName']}}
+                    </span>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-8 col-lg-3">
+                <div class="form-group floating-label">
+                    <input class="form-control" id="otherNamesId" type="text" placeholder=" " 
+                    formControlName="otherNames" [ngClass]="{'is-invalid': displayMessage['otherNames']}">
+                    <label for="firstNameId">Holder Other Name(s)</label>
+                    <span class="invalid-feedback">
+                        {{displayMessage['otherNames']}}
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4 col-md-3">
+                <div class="form-group floating-label">
+                    <input class="form-control" id="countryCodeId" type="text" placeholder="e.g. +254" 
+                    formControlName="countryCode" [ngClass]="{'is-invalid': displayMessage['countryCode']}">
+                    <label for="emailId">Country Code (Required)</label>
+                    <span class="invalid-feedback">
+                        {{displayMessage['countryCode']}}
+                    </span>
+                </div>
+            </div>
+            <div class="col-sm-8 col-md-5">
+                <div class="form-group floating-label">
+                    <input class="form-control" id="phoneId" type="text" placeholder="e.g. 784625634" 
+                    formControlName="phone" [ngClass]="{'is-invalid': displayMessage['phone']}">
+                    <label for="phoneId">Phone (Required)</label>
+                    <span class="invalid-feedback">
+                        {{displayMessage['phone']}}
+                    </span>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4">
+                <div class="form-group floating-label">
+                    <input class="form-control" id="phoneExtentionId" type="text" placeholder=" " 
+                    formControlName="phoneExtention" [ngClass]="{'is-invalid': displayMessage['phoneExtention']}">
+                    <label for="phoneExtentionId">Phone Extention</label>
+                    <span class="invalid-feedback">
+                        {{displayMessage['phoneExtention']}}
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-3">
+                <div class="form-group floating-label">
+                    <input class="form-control" id="premiumId" type="number" placeholder=" " 
+                    formControlName="premium" [ngClass]="{'is-invalid': displayMessage['premium']}">
+                    <label for="premiumId">Premium (Ksh.) (Required)</label>
+                    <span class="invalid-feedback">
+                        {{displayMessage['premium']}}
+                    </span>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-3">
+                <div class="form-group floating-label">
+                    <input class="form-control" id="startDateId" type="date" placeholder=" " 
+                    formControlName="startDate" [ngClass]="{'is-invalid': displayMessage['startDate']}">
+                    <label for="startDateId">Start Date (Required)</label>
+                    <span class="invalid-feedback">
+                        {{displayMessage['startDate']}}
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-md-4 col-lg-2">
+                <button type="submit" [disabled]="!policyForm.valid" class="btn btn-primary">Submit</button>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-2">
+                <button type="button" class="btn btn-primary" (click)="toDashboard()">Cancel</button>
+            </div>
+        </div>
+    </form>
+</div>

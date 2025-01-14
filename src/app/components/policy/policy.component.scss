@@ -1,0 +1,144 @@
+$transition: .5s all ease;
+$all-size: 15px;
+$white-color: #ffffff;
+$grey-color: #4a6f8a;
+$blue-color: #0046c0;
+$black-color: #111111;
+
+h1, h2, h3, h4, h5, h6 {
+    color: #232323;
+}
+
+p {
+    line-height: 1.7;
+}
+
+button:focus {
+    outline: 0;
+}
+  
+.btn.focus, .btn:focus {
+    -webkit-box-shadow: none;
+            box-shadow: none;
+}
+
+a {
+    font-weight: 500;
+    font-size: 14px;
+    text-transform: capitalize;
+    color: $grey-color;
+    cursor: pointer;
+    &:hover, &:focus {
+        color: $blue-color;
+    }
+}
+
+.container {
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+    .policy-head {
+        margin-top: 20px;
+        margin-bottom: 40px;
+        h1 {
+            font-weight: 700;
+            font-size: 38px;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+            position: relative;
+            &:before {
+                position: absolute;
+                content: '';
+                left: 0;
+                bottom: 0;
+                width: 80px;
+                height: 5px;
+                background-color: $blue-color;
+                border-radius: 5px;
+            }
+        }
+    }
+    .item-button {
+        color: $blue-color;
+        background-color: $white-color;
+        display: block;
+        border-radius: 5px;
+        font-size: 14px;
+        font-weight: 300;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        margin-top: 5px;
+        margin-bottom: 20px;
+        transition: $transition;
+        &:hover {
+            color: $white-color;
+            background-color: #6096fd;
+        }
+    }
+    .policy-body {
+        margin: 5px auto;
+        h3 {
+            font-weight: 700;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        p {
+            font-weight: 500;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 5px;
+            .form-control {
+                height: 36px;
+                border: 1px solid $grey-color;
+                padding-left: 20px;
+                font-size: $all-size;
+                &:focus {
+                    border: 1px solid $blue-color;
+                    box-shadow: none;
+                }
+            }
+            .form-control.is-invalid {
+                border: 1px solid #dc3545;
+            }
+            .form-check {
+                .form-check-input {
+                    width: 15px !important;
+                    height: 15px !important;
+                    top: 3px;
+                    margin-top: 0;
+                }
+                label {
+                    font-size: 1.2em !important;
+                    color: $grey-color;
+                    cursor: pointer;
+                    a {
+                        display: inline-block;
+                        color: $blue-color;
+                        &:hover {
+                            color: $black-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .delete-btn {
+        color: #dc3545;
+        background-color: $white-color;
+        display: block;
+        border: 1px solid $grey-color;
+        border-radius: 5px;
+        font-size: 14px;
+        font-weight: 300;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        transition: $transition;
+        &:hover {
+            color: $white-color;
+            background-color: #dc3545;
+        }
+    }
+}

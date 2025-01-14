@@ -1,0 +1,180 @@
+<a class="active" (click)="toDashboard()">Back To Dashboard</a>
+<div class="container" *ngIf="policy">
+    <div class="policy-head">
+        <h1>Policy Item</h1>
+    </div>
+  <div class="policy-body">
+    <div class="row policy-item">
+        <div class="col-sm-4 col-md-3">
+            <h4>Policy ID:</h4>
+        </div>
+        <div class="col-sm-8 col-md-6 col-lg-4">
+            <p>{{ policy.policyId }}</p>
+        </div>
+    </div>
+    <div class="row policy-item">
+        <div class="col-sm-4 col-md-3">
+            <h4>Policy Name:</h4>
+        </div>
+        <div class="col-sm-8 col-md-6 col-lg-4">
+            <p>{{ policy.policyName }}</p>
+        </div>
+    </div>
+    <div class="row policy-item">
+        <div class="col-sm-4 col-md-3">
+            <h4>Policy Holder ID:</h4>
+        </div>
+        <div class="col-sm-8 col-md-6 col-lg-4">
+            <p>{{ policy.policyHolderId }}</p>
+        </div>
+    </div>
+    <div class="row policy-item">
+        <div class="col-sm-4 col-md-3">
+            <h4>Policy Holder:</h4>
+        </div>
+        <div class="col-sm-8 col-md-6 col-lg-4">
+            <p>{{ policy.policyHolder }}</p>
+        </div>
+    </div>
+    <div class="row policy-item">
+        <div class="col-sm-4 col-md-3">
+            <h4>Phone Number:</h4>
+        </div>
+        <div class="col-sm-8 col-md-6 col-lg-4">
+            <p>{{ policy.phoneNumber }}</p>
+        </div>
+        <div class="col-sm-6 col-md-3 col-lg-2" [hidden]="contactButton">
+            <button class="item-button" (click)="onContactEdit()">Update Contact</button>
+        </div>
+        <div class="col-sm-12" [hidden]="!contactButton">
+            <form [formGroup]="contactForm" (ngSubmit)="onContactSubmit()" class="policy-form">
+                <div class="row">
+                    <div class="col-sm-4 col-md-3">
+                        <div class="form-group floating-label">
+                            <input class="form-control" id="countryCodeId" type="text" placeholder="e.g. +254" 
+                            formControlName="countryCode" #formInput [ngClass]="{'is-invalid': displayMessage['countryCode']}">
+                            <label for="emailId">Country Code (Required)</label>
+                            <span class="invalid-feedback">
+                                {{displayMessage['countryCode']}}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-sm-8 col-md-5">
+                        <div class="form-group floating-label">
+                            <input class="form-control" id="phoneId" type="text" placeholder="e.g. 724895387" 
+                            formControlName="phone" #formInput [ngClass]="{'is-invalid': displayMessage['phone']}">
+                            <label for="phoneId">Phone (Required)</label>
+                            <span class="invalid-feedback">
+                                {{displayMessage['phone']}}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group floating-label">
+                            <input class="form-control" id="phoneExtentionId" type="text" placeholder=" " #formInput 
+                            formControlName="phoneExtention" [ngClass]="{'is-invalid': displayMessage['phoneExtention']}">
+                            <label for="phoneExtentionId">Phone Extention</label>
+                            <span class="invalid-feedback">
+                                {{displayMessage['phoneExtention']}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-8 col-md-4 col-lg-3">
+                        <button class="item-button" type="submit">Update</button>
+                    </div>
+                    <div class="col-sm-4 col-md-3 col-lg-2">
+                        <button class="item-button" type="button" (click)="cancelContact()">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row policy-item">
+        <div class="col-sm-4 col-md-3">
+            <h4>Policy Amount:</h4>
+        </div>
+        <div class="col-sm-8 col-md-6 col-lg-4">
+            <p>{{ policy.policyAmount }}</p>
+        </div>
+        <div class="col-sm-6 col-md-3 col-lg-2" [hidden]="premiumButton">
+            <button class="item-button" (click)="onPremiumEdit()">Update Premium</button>
+        </div>
+        <div class="col-sm-12" [hidden]="!premiumButton">
+            <form [formGroup]="premiumForm" (ngSubmit)="onPremiumSubmit()" class="policy-form">
+                <div class="row">
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <div class="form-group floating-label">
+                            <input class="form-control" id="newPolicyValueId" type="number" placeholder=" " #formInput 
+                            formControlName="newPolicyValue" [ngClass]="{'is-invalid': displayMessage['newPolicyValue']}">
+                            <label for="newPolicyValueId">New Premium (Ksh.) (Required)</label>
+                            <span class="invalid-feedback">
+                                {{displayMessage['newPolicyValue']}}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <div class="form-group floating-label">
+                            <input class="form-control" id="effectiveDateId" type="date" placeholder=" " #formInput 
+                            formControlName="effectiveDate" [ngClass]="{'is-invalid': displayMessage['effectiveDate']}">
+                            <label for="effectiveDateId">Effective Date (Required)</label>
+                            <span class="invalid-feedback">
+                                {{displayMessage['effectiveDate']}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-8 col-md-4 col-lg-3">
+                        <button class="item-button" type="submit">Update</button>
+                    </div>
+                    <div class="col-sm-4 col-md-3 col-lg-2">
+                        <button class="item-button" type="button" (click)="cancelPremium()">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row policy-item">
+        <div class="col-sm-4 col-md-3">
+            <h4>Policy Status:</h4>
+        </div>
+        <div class="col-sm-8 col-md-6 col-lg-4">
+            <p>{{ policy.policyStatus }}</p>
+        </div>
+        <div class="col-sm-6 col-md-3 col-lg-2" [hidden]="statusButton">
+            <button class="item-button" (click)="onPolicyStatusEdit()">Update Status</button>
+        </div>
+        <div class="col-sm-12" [hidden]="!statusButton">
+            <form [formGroup]="statusForm" (ngSubmit)="onStatusSubmit()" class="policy-form">
+                <div class="row">
+                    <div class="col-sm-8 col-md-4">
+                        <div class="form-group floating-label">
+                            <select class="form-control" id="newStatusId" formControlName="newStatus" #formInput 
+                            [ngClass]="{'is-invalid': displayMessage['newStatus']}">
+                              <option *ngFor="let status of statusOptions" [value]="status.viewValue">{{status.viewValue}}</option>
+                            </select>
+                            <label for="newStatusId">Select Status</label>
+                            <span class="invalid-feedback">
+                                {{displayMessage['newStatus']}}
+                            </span>
+                          </div>
+                    </div>
+                    <div class="col-sm-4 col-md-3 col-lg-2">
+                        <button class="item-button" type="submit">Update</button>
+                    </div>
+                    <div class="col-sm-4 col-md-3 col-lg-2">
+                        <button class="item-button" type="button" (click)="cancelStatus()">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 col-md-3 col-lg-2">
+        <button class="delete-btn" type="button" (click)="deletePolicy()">Delete Policy</button>
+    </div>
+  </div>
+</div>

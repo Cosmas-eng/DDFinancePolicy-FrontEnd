@@ -1,0 +1,62 @@
+<!-- Description: This is the HTML file for the dashboard component. It contains the HTML code for the dashboard component. -->  
+<div class="table-container">
+  <div class="row">
+    <div class="col-sm-6 col-md-4 col-lg-3">
+      <button mat-raised-button (click)="addNewPolicy()" class="start-button">
+        Add New Policy
+      </button>
+    </div>
+  </div>
+  <div class="row searchFilter">
+    <div class="col-sm-12 col-md-8 col-lg-4">
+      <div class="form-group floating-label">
+        <input class="form-control" id="searchTerm" type="text" placeholder="Search by Policy Holder" 
+        [(ngModel)]="searchTerm">
+        <label for="searchTerm">Search</label>
+     </div>
+    </div>
+    <div class="col-sm-6 col-md-4 col-lg-2">
+      <div class="form-group floating-label">
+        <select class="form-control" id="filterStatus" [(ngModel)]="filterStatus">
+          <option *ngFor="let status of statusOptions" [value]="status.value">{{status.viewValue}}</option>
+        </select>
+        <label for="filterStatus">Filter Status</label>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-3 col-lg-2">
+      <button mat-raised-button (click)="reloadPolicyData()" class="demo-button">
+        Update Data
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <!-- Position Column -->
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef class="id-column"> ID. </mat-header-cell>
+        <mat-cell *matCellDef="let element" class="id-column"> {{element.id}} </mat-cell>
+      </ng-container>
+    
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef class="name-column"> Policy Name </mat-header-cell>
+        <mat-cell *matCellDef="let element" class="name-column"> {{element.name}} </mat-cell>
+      </ng-container>
+    
+      <!-- Weight Column -->
+      <ng-container matColumnDef="holder">
+        <mat-header-cell *matHeaderCellDef class="holder-column"> Policy Holder </mat-header-cell>
+        <mat-cell *matCellDef="let element" class="holder-column"> {{element.holder}} </mat-cell>
+      </ng-container>
+    
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="status">
+        <mat-header-cell *matHeaderCellDef class="status-column"> Status </mat-header-cell>
+        <mat-cell *matCellDef="let element" class="status-column"> {{element.status}} </mat-cell>
+      </ng-container>
+    
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row (click)="loadPolicyDetails(row)" *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+  </div>
+</div>

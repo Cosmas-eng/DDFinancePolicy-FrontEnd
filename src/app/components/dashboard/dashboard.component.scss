@@ -1,0 +1,95 @@
+$transition: .5s all ease;
+$all-size: 15px;
+$white-color: #ffffff;
+$grey-color: #4a6f8a;
+$blue-color: #0046c0;
+$black-color: #111111;
+
+.table-container {
+  width: 90%; /* Adjust the width as needed */
+  margin: 0 auto; /* Center the table */
+  .start-button {
+    color: $blue-color;
+    background-color: $white-color;
+    display: block;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 300;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    transition: $transition;
+    &:hover {
+        color: $white-color;
+        background-color: #6096fd;
+    }
+  }
+  .searchFilter {
+    margin: 5px auto;
+    .form-group {
+      margin-bottom: 5px;
+      .form-control {
+        height: 36px;
+        border: 1px solid $grey-color;
+        padding-left: 20px;
+        font-size: $all-size;
+        &:focus {
+          border: 1px solid $blue-color;
+          box-shadow: none;
+        }
+      }
+      .form-control.is-invalid {
+        border: 1px solid #dc3545;
+      }
+      .form-check {
+        .form-check-input {
+            width: 15px !important;
+            height: 15px !important;
+            top: 3px;
+            margin-top: 0;
+        }
+        label {
+          font-size: 1.2em !important;
+          color: $grey-color;
+          cursor: pointer;
+          a {
+            display: inline-block;
+            color: $blue-color;
+            &:hover {
+                color: $black-color;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.mat-elevation-z8 {
+  width: 100%; /* Ensure the table takes the full width of the container */
+}
+
+.mat-header-cell, .mat-cell {
+  flex: 1 1 auto; /* Allow flexbox to manage the widths */
+}
+
+.id-column {
+  flex: 0 0 10%; /* Adjust the width as needed */
+}
+
+.name-column {
+  flex: 0 0 35%; /* Adjust the width as needed */
+}
+
+.holder-column {
+  flex: 0 0 35%; /* Adjust the width as needed */
+}
+
+.status-column {
+  flex: 0 0 20%; /* Adjust the width as needed */
+}
+
+.mat-mdc-row:hover .mat-mdc-cell {
+  background-color: $grey-color;
+}
