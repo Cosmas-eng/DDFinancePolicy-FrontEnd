@@ -1,5 +1,3 @@
-[![Angular](https://github.com/ardalis/CleanArchitecture/workflows/.NET%20Core/badge.svg)](https://angular.dev/)
-
 # Introductions
 
 This is a Front-End test project for a [job](https://ddfinance.com/jobs/dev/) opening at [DDFinance](https://ddfinance.com/). It is a user interface project based off of [Angular](https://angular.dev/) a TypeScript-based free and open-source single-page web application framework.
