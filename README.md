@@ -1,27 +1,49 @@
-# DDFinancepolicyFrontend
+[![Angular](https://github.com/ardalis/CleanArchitecture/workflows/.NET%20Core/badge.svg)](https://angular.dev/)
+
+# Introductions
+
+This is a Front-End test project for a [job](https://ddfinance.com/jobs/dev/) opening at [DDFinance](https://ddfinance.com/). It is a user interface project based off of [Angular](https://angular.dev/) a TypeScript-based free and open-source single-page web application framework.
+
+## Table Of Contents
+
+- [Introduction](#introductions)
+  - [Table Of Contents](#table-of-contents)
+- [Project Properties](#project-propertise)
+  - [Pages](#pages)
+  - [Angular Version](#angular-version)
+  - [Data Table](#data-table)
+  - [Input Forms](#input-forms)
+  - [Responsive Design](#responsive-design)
+- [Local Setup](#local-setup)
+
+# Project Propertise
+
+## Angular Version
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.4.
 
-## Development server
+## Pages
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+This front-end application boasts three pages coneniently and efficiently routed. The pages include a home dashboard that loads a list of policies to a table, a form for adding a policy and lastly a policy item page for displaying and updating a policy item. Together they fully capture the requests as directed from the project statement.
 
-## Code scaffolding
+## Data Table
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+The apps home page loads to a data table that is the product of [Angular Material](https://material.angular.io/components/table/overview) displaying a list of policies on which the user can perform various opperations.
 
-## Build
+## Input Forms
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+The required input forms for adding new policies and performing required updates on the available have been built by [Angular Reactive Forms](https://angular.dev/guide/forms/reactive-forms).
 
-## Running unit tests
+## Responsive Design
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+The responsive properties of the appliction are provide for by [Bootstrap](https://getbootstrap.com/) row and column classes
 
-## Running end-to-end tests
+## Notifiction
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+The convenient notifictions that offer users meaningfull alarts during their add, update and delete operations on the data are provided for by [SweetAlart2](https://sweetalert2.github.io/)
 
-## Further help
+# Local Setup
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+The first and usual step after downloading the project and loading it on your favorite programing environment is to run `npm install` to get all the project dependencies. After that is done, you can run `ng serve` for a dev server then naviagte to `http://localhost:4200/` on you browser for the UI interaction. Assuming the back-end is set up and running on `http://localhost:57679` the app should be fully functional. If the back-end is not on the specified route, then the route should be updated on the `policy.service.ts` file in the `src/app/core/services` folder.
+
+
